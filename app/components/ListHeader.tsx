@@ -4,7 +4,7 @@ import SeeAllButton from "./SeeAllButton";
 
 type ListHeaderProps = {
   text: string;
-  onPress?: () => {};
+  onPress?: () => void;
 };
 
 const ListHeader: React.FC<ListHeaderProps> = ({ text, onPress }) => {

@@ -4,6 +4,12 @@ import { FlatList } from "react-native";
 import CategoryItem from "./CategoryItem";
 import { CATEGORY_IMAGES } from "../utils/constants";
 import { toTitleCase } from "../utils/helper_functions";
+import { useNavigation } from "@react-navigation/native";
+import {
+  HomeStackNavigationProps,
+  HomeStackParams,
+} from "../utils/route_types";
+import { Routes } from "../utils/route_constants";
 
 type HorizontalCategoryListProps = {
   categories: string[];
@@ -12,9 +18,16 @@ type HorizontalCategoryListProps = {
 const HorizontalCategoryList: React.FC<HorizontalCategoryListProps> = ({
   categories,
 }) => {
+  const navigation =
+    useNavigation<HomeStackNavigationProps<keyof HomeStackParams>>();
+
+  const onPressHandler = () => {
+    navigation.navigate(Routes.ALL_CATEGORIES, { categories: categories });
+  };
+
   return (
     <>
-      <ListHeader text="Categories" />
+      <ListHeader text="Categories" onPress={onPressHandler} />
       <FlatList
         horizontal
         data={categories}

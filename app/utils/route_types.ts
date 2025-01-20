@@ -5,6 +5,7 @@ import { RouteProp } from "@react-navigation/native";
 export type HomeStackParams = {
   [Routes.HOME]: undefined;
   [Routes.PROFILE]: undefined;
+  [Routes.ALL_CATEGORIES]: { categories: string[] };
 };
 
 export type HomeStackNavigationProps<T extends keyof HomeStackParams> =

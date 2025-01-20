@@ -10,6 +10,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import React from "react";
 import { Theme } from "../utils/theme";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import HomeStackNavigator from "./HomeStackNavigator";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -24,7 +25,7 @@ const BottomNavigator: React.FC = () => {
       >
         <BottomTab.Screen
           name={Routes.HOME_BOTTOM_TAB}
-          component={HomeScreen}
+          component={HomeStackNavigator}
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ color, size }) => (

@@ -8,4 +8,5 @@ export const Routes = {
   CART_BOTTOM_TAB: "cart_bottom_tab" as const,
   PROFILE_BOTTOM_TAB: "profile_bottom_tab" as const,
   PRODUCTS: "products" as const,
+  ALL_CATEGORIES: "all_categories" as const,
 };
