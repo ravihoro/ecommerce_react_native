@@ -6,22 +6,21 @@ const useHomeScreenController = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>();
   const [categories, setCategories] = useState<string[]>([]);
+  const [menProducts, setMenProducts] = useState<Product[]>([]);
+  const [womenProducts, setWomenProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
       setIsLoading(true);
       try {
         const categoriesList = await getCategories();
-        console.log(`categories::: ${categoriesList}`);
-        if (
-          Array.isArray(categoriesList) &&
-          categoriesList.every((item) => typeof item === "string")
-        ) {
-          console.log("json is a list of strings");
-        } else {
-          console.log("json is not a list of strings");
-        }
+
+        const menProductList = await getProducts(categoriesList[2]);
+        const womenProductList = await getProducts(categoriesList[3]);
+
         setCategories(categoriesList);
+        setMenProducts(menProductList);
+        setWomenProducts(womenProductList);
       } catch (e: any) {
         setError((e as Error).message);
       } finally {
@@ -34,6 +33,8 @@ const useHomeScreenController = () => {
 
   return {
     categories,
+    menProducts,
+    womenProducts,
     isLoading,
     error,
   };

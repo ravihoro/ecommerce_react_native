@@ -7,6 +7,8 @@ import { Theme } from "../utils/theme";
 import { ActivityIndicator } from "react-native-paper";
 import SearchField from "../components/SearchField";
 import HorizontalCategoryList from "../components/HorizontalCategoryList";
+import HorizontalProductList from "../components/HorizontalProductList";
+import { toTitleCase } from "../utils/helper_functions";
 
 const HomeScreen: React.FC = () => {
   const { categories, menProducts, womenProducts, isLoading, error } =
@@ -32,6 +34,8 @@ const HomeScreen: React.FC = () => {
     <ScrollView style={styles.container}>
       <SearchField />
       <HorizontalCategoryList categories={categories} />
+      <HorizontalProductList products={menProducts} text="Men's Clothing" />
+      <HorizontalProductList products={womenProducts} text="Women's Clothing" />
     </ScrollView>
   );
 };

@@ -9,7 +9,9 @@ export const getCategories = async () => {
 };
 
 export const getProducts = async (category: string) => {
-  const response = await fetch(`${BASE_URL}/${category}`);
+  var url = `${BASE_URL}/category/${category}`;
+  const response = await fetch(url);
   if (!response.ok) throw new Error("Not found");
-  return await response.json();
+  var json = await response.json();
+  return json;
 };
