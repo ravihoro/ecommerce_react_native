@@ -14,6 +14,9 @@ const HomeScreen: React.FC = () => {
   const { categories, menProducts, womenProducts, isLoading, error } =
     useHomeScreenController();
 
+  const navigation =
+    useNavigation<HomeStackNavigationProps<typeof Routes.PRODUCTS>>();
+
   if (isLoading) {
     return (
       <View style={[styles.container, styles.centeredContainer]}>
@@ -34,8 +37,20 @@ const HomeScreen: React.FC = () => {
     <ScrollView style={styles.container}>
       <SearchField />
       <HorizontalCategoryList categories={categories} />
-      <HorizontalProductList products={menProducts} text="Men's Clothing" />
-      <HorizontalProductList products={womenProducts} text="Women's Clothing" />
+      <HorizontalProductList
+        products={menProducts}
+        text="Men's Clothing"
+        onPress={() => {
+          navigation.navigate(Routes.PRODUCTS, { category: categories[2] });
+        }}
+      />
+      <HorizontalProductList
+        products={womenProducts}
+        text="Women's Clothing"
+        onPress={() => {
+          navigation.navigate(Routes.PRODUCTS, { category: categories[3] });
+        }}
+      />
     </ScrollView>
   );
 };

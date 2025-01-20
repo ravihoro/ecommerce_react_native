@@ -6,6 +6,7 @@ export type HomeStackParams = {
   [Routes.HOME]: undefined;
   [Routes.PROFILE]: undefined;
   [Routes.ALL_CATEGORIES]: { categories: string[] };
+  [Routes.PRODUCTS]: { category: string };
 };
 
 export type HomeStackNavigationProps<T extends keyof HomeStackParams> =

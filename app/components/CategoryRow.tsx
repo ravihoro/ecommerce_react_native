@@ -1,17 +1,24 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Theme } from "../utils/theme";
 
 type CategoryRowProps = {
   imageUrl: string;
   text: string;
+  onPress: () => void;
 };
 
-const CategoryRow: React.FC<CategoryRowProps> = ({ imageUrl, text }) => {
+const CategoryRow: React.FC<CategoryRowProps> = ({
+  imageUrl,
+  text,
+  onPress,
+}) => {
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: imageUrl }} style={styles.imageContainer} />
-      <Text>{text}</Text>
-    </View>
+    <Pressable onPress={onPress}>
+      <View style={styles.container}>
+        <Image source={{ uri: imageUrl }} style={styles.imageContainer} />
+        <Text>{text}</Text>
+      </View>
+    </Pressable>
   );
 };
 

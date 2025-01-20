@@ -5,6 +5,7 @@ import HomeScreen from "./HomeScreen";
 import AllCategoriesScreen from "./AllCategoriesScreen";
 import { View } from "react-native";
 import AppBar from "../components/AppBar";
+import ProductsScreen from "./ProductsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,7 @@ const HomeStackNavigator: React.FC = () => {
         name={Routes.ALL_CATEGORIES}
         component={AllCategoriesScreen}
       />
+      <Stack.Screen name={Routes.PRODUCTS} component={ProductsScreen} />
     </Stack.Navigator>
   );
 };

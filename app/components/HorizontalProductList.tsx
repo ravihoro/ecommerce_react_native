@@ -7,15 +7,17 @@ import ProductItem from "./ProductItem";
 type HorizontalProductListProps = {
   products: Product[];
   text: string;
+  onPress: () => void;
 };
 
 const HorizontalProductList: React.FC<HorizontalProductListProps> = ({
   products,
   text,
+  onPress,
 }) => {
   return (
     <View>
-      <ListHeader text={text} />
+      <ListHeader text={text} onPress={onPress} />
       <FlatList
         horizontal
         data={products}

@@ -19,7 +19,7 @@ const HorizontalCategoryList: React.FC<HorizontalCategoryListProps> = ({
   categories,
 }) => {
   const navigation =
-    useNavigation<HomeStackNavigationProps<keyof HomeStackParams>>();
+    useNavigation<HomeStackNavigationProps<typeof Routes.PRODUCTS>>();
 
   const onPressHandler = () => {
     navigation.navigate(Routes.ALL_CATEGORIES, { categories: categories });
@@ -36,6 +36,9 @@ const HorizontalCategoryList: React.FC<HorizontalCategoryListProps> = ({
           <CategoryItem
             imageUrl={CATEGORY_IMAGES[index]}
             text={toTitleCase(item)}
+            onPress={() => {
+              navigation.navigate(Routes.PRODUCTS, { category: item });
+            }}
           />
         )}
       />

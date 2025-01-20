@@ -1,24 +1,31 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Theme } from "../utils/theme";
 
 type CategoryItemProps = {
   imageUrl: string;
   text: string;
+  onPress: () => void;
 };
 
-const CategoryItem: React.FC<CategoryItemProps> = ({ imageUrl, text }) => {
+const CategoryItem: React.FC<CategoryItemProps> = ({
+  imageUrl,
+  text,
+  onPress,
+}) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image
-          source={{ uri: imageUrl }}
-          height={60}
-          width={60}
-          style={styles.imageStyle}
-        />
+    <Pressable onPress={onPress}>
+      <View style={styles.container}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={{ uri: imageUrl }}
+            height={60}
+            width={60}
+            style={styles.imageStyle}
+          />
+        </View>
+        <Text style={styles.textStyle}>{text}</Text>
       </View>
-      <Text style={styles.textStyle}>{text}</Text>
-    </View>
+    </Pressable>
   );
 };
 
