@@ -4,6 +4,7 @@ const Palette = {
   grey: "#f4f4f4",
   darkGrey: "#272727",
   white: "#ffffff",
+  red: "#cd0e61",
 };
 
 export const Theme = {
@@ -12,7 +13,10 @@ export const Theme = {
     primaryLight: Palette.lightPurple,
     background: Palette.white,
     greyBackground: Palette.grey,
+    failure: Palette.red,
+    primaryIcon: Palette.purple,
   },
+
   fontSize: {
     xs: 8,
     s: 12,
@@ -25,5 +29,24 @@ export const Theme = {
     m: 16,
     l: 24,
     xl: 40,
+  },
+  textVariants: {
+    headerBold: {
+      fontSize: 24,
+      fontWeight: "bold",
+    },
+    header: {
+      fontSize: 24,
+    },
+    subHeader: {
+      fontSize: 16,
+    },
+    subHeaderBold: {
+      fontSize: 16,
+      fontWeight: "bold",
+    },
+    body: {
+      fontSize: 16,
+    },
   },
 };
