@@ -9,4 +9,5 @@ export const Routes = {
   PROFILE_BOTTOM_TAB: "profile_bottom_tab" as const,
   PRODUCTS: "products" as const,
   ALL_CATEGORIES: "all_categories" as const,
+  PRODUCT_DETAIL: "product_detail" as const,
 };

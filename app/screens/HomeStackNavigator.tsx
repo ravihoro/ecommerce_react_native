@@ -1,11 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { Routes } from "../utils/route_constants";
 import HomeScreen from "./HomeScreen";
 import AllCategoriesScreen from "./AllCategoriesScreen";
 import { View } from "react-native";
 import AppBar from "../components/AppBar";
 import ProductsScreen from "./ProductsScreen";
+import ProductDetailScreen from "./ProductDetailScreen";
+import { useNavigation } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +40,10 @@ const HomeStackNavigator: React.FC = () => {
         component={AllCategoriesScreen}
       />
       <Stack.Screen name={Routes.PRODUCTS} component={ProductsScreen} />
+      <Stack.Screen
+        name={Routes.PRODUCT_DETAIL}
+        component={ProductDetailScreen}
+      />
     </Stack.Navigator>
   );
 };

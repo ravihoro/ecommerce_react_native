@@ -15,6 +15,7 @@ export const Theme = {
     greyBackground: Palette.grey,
     failure: Palette.red,
     primaryIcon: Palette.purple,
+    whiteIcon: Palette.white,
   },
 
   fontSize: {

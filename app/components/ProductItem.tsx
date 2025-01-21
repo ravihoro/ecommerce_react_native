@@ -5,15 +5,16 @@ import { Ionicons } from "@expo/vector-icons";
 
 type ProductItemProps = {
   product: Product;
+  onPress: () => void;
 };
 
-const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+const ProductItem: React.FC<ProductItemProps> = ({ product, onPress }) => {
   const isFavorite = false;
 
   const favoritesHandler = () => {};
 
   return (
-    <Pressable style={styles.container}>
+    <Pressable style={styles.container} onPress={onPress}>
       <Image source={{ uri: product.image }} style={styles.imageStyle} />
       <Pressable style={styles.iconContainer} onPress={favoritesHandler}>
         <Ionicons
