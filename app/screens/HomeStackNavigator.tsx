@@ -7,14 +7,24 @@ import { View } from "react-native";
 import AppBar from "../components/AppBar";
 import ProductsScreen from "./ProductsScreen";
 import ProductDetailScreen from "./ProductDetailScreen";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import FavoritesScreen from "./FavoritesScreen";
+import { BottomTabParams, BottomTabRouteProp } from "../utils/route_types";
+import ProfileScreen from "./ProfileScreen";
 
 const Stack = createNativeStackNavigator();
 
 const HomeStackNavigator: React.FC = () => {
+  const route = useRoute<BottomTabRouteProp<keyof BottomTabParams>>();
+
+  const initialRouteName =
+    route.params == null ? Routes.HOME : route.params!.initialRouteName;
+
+  console.log("initial route name: ", initialRouteName);
+
   return (
     <Stack.Navigator
-      initialRouteName={Routes.HOME}
+      initialRouteName={initialRouteName}
       screenOptions={({ navigation, route }) => {
         if (route.name === Routes.HOME) {
           return {
@@ -44,6 +54,8 @@ const HomeStackNavigator: React.FC = () => {
         name={Routes.PRODUCT_DETAIL}
         component={ProductDetailScreen}
       />
+      <Stack.Screen name={Routes.PROFILE} component={ProfileScreen} />
+      <Stack.Screen name={Routes.FAVORITE} component={FavoritesScreen} />
     </Stack.Navigator>
   );
 };

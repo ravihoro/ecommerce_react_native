@@ -55,7 +55,8 @@ const BottomNavigator: React.FC = () => {
         />
         <BottomTab.Screen
           name={Routes.PROFILE_BOTTOM_TAB}
-          component={ProfileScreen}
+          initialParams={{ initialRouteName: Routes.PROFILE }}
+          component={HomeStackNavigator}
           options={{
             tabBarLabel: "Profile",
             tabBarIcon: ({ color, size }) => (

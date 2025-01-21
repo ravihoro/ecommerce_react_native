@@ -10,4 +10,5 @@ export const Routes = {
   PRODUCTS: "products" as const,
   ALL_CATEGORIES: "all_categories" as const,
   PRODUCT_DETAIL: "product_detail" as const,
+  FAVORITE: "favorite" as const,
 };
