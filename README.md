@@ -17,4 +17,4 @@ An ecommerce app built using React Native.
 <img src="screenshots/ecom_5.jpg" width=250> <img src="screenshots/ecom_6.jpg" width=250> <br>
 <img src="screenshots/ecom_7.jpg" width=250> <img src="screenshots/ecom_8.jpg" width=250>
 <img src="screenshots/ecom_9.jpg" width=250> <br> <img src="screenshots/ecom_10.jpg" width=250>
-<img src="screenshots/ecom_111.jpg" width=250>
+<img src="screenshots/ecom_11.jpg" width=250>
