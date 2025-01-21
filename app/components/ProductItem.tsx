@@ -2,6 +2,8 @@ import { Dimensions, Image, Pressable, StyleSheet, Text } from "react-native";
 import { Product } from "../model/product";
 import { Theme } from "../utils/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { useContext } from "react";
+import { FavoritesContext } from "../store/favorites-context";
 
 type ProductItemProps = {
   product: Product;
@@ -9,9 +11,18 @@ type ProductItemProps = {
 };
 
 const ProductItem: React.FC<ProductItemProps> = ({ product, onPress }) => {
-  const isFavorite = false;
+  const { favorites, addFavorite, removeFavorite } =
+    useContext(FavoritesContext);
 
-  const favoritesHandler = () => {};
+  const isFavorite = favorites.some((fav) => fav.id === product.id);
+
+  const favoritesHandler = () => {
+    if (isFavorite) {
+      removeFavorite(product.id);
+    } else {
+      addFavorite(product);
+    }
+  };
 
   return (
     <Pressable style={styles.container} onPress={onPress}>
