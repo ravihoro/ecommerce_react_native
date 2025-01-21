@@ -10,13 +10,16 @@ import { Theme } from "../utils/theme";
 import { useRoute } from "@react-navigation/native";
 import { HomeStackRouteProp } from "../utils/route_types";
 import { Routes } from "../utils/route_constants";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import RatingContainer from "../components/RatingContainer";
 import RoundedButton from "../components/RoundedButton";
 import { Ionicons } from "@expo/vector-icons";
 import { getPrice } from "../utils/helper_functions";
+import { CartContext } from "../store/cart-context";
 
 const ProductDetailScreen: React.FC = () => {
+  const { addItemToCart } = useContext(CartContext);
+
   const route = useRoute<HomeStackRouteProp<typeof Routes.PRODUCT_DETAIL>>();
 
   const product = route.params.product;
@@ -84,6 +87,7 @@ const ProductDetailScreen: React.FC = () => {
       <View style={styles.addToCartButtonStyle}>
         <RoundedButton
           onPress={() => {
+            addItemToCart(product, quantity);
             ToastAndroid.show("Product added to cart", ToastAndroid.SHORT);
           }}
         >
@@ -149,6 +153,7 @@ const styles = StyleSheet.create({
   addToCartChildrenStyle: {
     flexDirection: "row",
     flex: 1,
+    paddingVertical: Theme.spacing.s,
     justifyContent: "space-between",
     alignItems: "center",
   },

@@ -4,6 +4,7 @@ import { Theme } from "../utils/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { useContext } from "react";
 import { FavoritesContext } from "../store/favorites-context";
+import { getPrice } from "../utils/helper_functions";
 
 type ProductItemProps = {
   product: Product;
@@ -39,7 +40,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onPress }) => {
         {product.title}
       </Text>
 
-      <Text style={styles.priceStyle}>${product.price}</Text>
+      <Text style={styles.priceStyle}>
+        ${getPrice(product.price.toString())}
+      </Text>
     </Pressable>
   );
 };

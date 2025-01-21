@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flex: 1,
     justifyContent: "center",
+    paddingVertical: Theme.spacing.s,
   },
   textStyle: {
     color: Theme.colors.background,

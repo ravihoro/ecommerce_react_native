@@ -75,7 +75,9 @@ const SignInScreen: React.FC = () => {
           style={
             isFormValid
               ? undefined
-              : { backgroundColor: Theme.colors.primaryLight }
+              : {
+                  backgroundColor: Theme.colors.primaryLight,
+                }
           }
           isDisabled={!isFormValid}
           onPress={signIn}

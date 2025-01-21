@@ -46,7 +46,7 @@ const ProfileScreen: React.FC = () => {
       <ProfileOption text="Help" />
       <ProfileOption text="Support" />
 
-      <Pressable onPointerCancel={signOutAlert}>
+      <Pressable onPress={signOutAlert}>
         <Text style={styles.signOutTextStyle}>Sign Out</Text>
       </Pressable>
     </View>

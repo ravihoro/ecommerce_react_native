@@ -1,20 +1,24 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { Routes } from "../utils/route_constants";
 import HomeScreen from "./HomeScreen";
 import NotificationScreen from "./NotificationScreen";
 import CartScreen from "./CartScreen";
 import ProfileScreen from "./ProfileScreen";
 import Icon from "react-native-vector-icons/FontAwesome";
-import React from "react";
+import React, { useContext } from "react";
 import { Theme } from "../utils/theme";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import HomeStackNavigator from "./HomeStackNavigator";
+import { Ionicons } from "@expo/vector-icons";
+import { CartContext } from "../store/cart-context";
 
 const BottomTab = createBottomTabNavigator();
 
 const BottomNavigator: React.FC = () => {
+  const { getQuantity } = useContext(CartContext);
+
   return (
     <NavigationContainer>
       <BottomTab.Navigator
@@ -49,7 +53,25 @@ const BottomNavigator: React.FC = () => {
           options={{
             tabBarLabel: "Cart",
             tabBarIcon: ({ color, size }) => (
-              <MaterialIcons name="shopping-cart" size={size} color={color} />
+              <View>
+                <Ionicons name="cart-outline" color={color} size={size} />
+                {getQuantity() > 0 && (
+                  <Text
+                    style={{
+                      position: "absolute",
+                      right: -5,
+                      paddingVertical: 2,
+                      paddingHorizontal: 5,
+                      backgroundColor: Theme.colors.primary,
+                      borderRadius: 20,
+                      color: Theme.colors.background,
+                      fontSize: Theme.fontSize.xs,
+                    }}
+                  >
+                    {getQuantity()}
+                  </Text>
+                )}
+              </View>
             ),
           }}
         />

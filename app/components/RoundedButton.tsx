@@ -3,7 +3,7 @@ import { Theme } from "../utils/theme";
 
 interface RoundedButtonProps {
   children: React.ReactNode;
-  onPress: () => void;
+  onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   isDisabled?: boolean;
 }
@@ -28,7 +28,7 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: Theme.spacing.m,
+    padding: Theme.spacing.s,
     backgroundColor: Theme.colors.primary,
     borderRadius: 50,
   },
